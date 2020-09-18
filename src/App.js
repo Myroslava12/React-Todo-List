@@ -14,29 +14,14 @@ function App() {
   const [filteredTasks, setFilteredTasks] = useState([]);
   const [error, setError] = useState(false);
 
+  useEffect(() => {
+    getTasksFromLocal();
+  }, []);
 
   useEffect(() => {
-    saveToLocalStorage();
     filterHandle();
+    saveToLocalStorage();
   }, [todoItems, itemsSelect]);
-
-  useEffect(() => {
-    getTasksFromLocal()
-  }, [])
-
-  // Save to Local tasks
-  const saveToLocalStorage = () => {
-    localStorage.setItem("todos", JSON.stringify(todoItems));
-  }
-
-  const getTasksFromLocal = () => {
-    if (localStorage.getItem("todos" === null)) {
-      localStorage.setItem("todos", JSON.stringify([]));
-    } else {
-      let tasksFromLocal = JSON.parse(localStorage.getItem("todos"));
-      setTodoItems(tasksFromLocal);
-    }
-  }
 
   const filterHandle = () => {
     switch (itemsSelect) {
@@ -49,6 +34,21 @@ function App() {
       default : 
         setFilteredTasks(todoItems);
         break;
+    }
+  }
+
+  // Save to Local tasks
+  const saveToLocalStorage = () => {
+    localStorage.setItem("todos", JSON.stringify(todoItems));
+  }
+
+  const getTasksFromLocal = () => {
+    if (localStorage.getItem("todos") === null) {
+      localStorage.setItem("todos", JSON.stringify([]));
+    } else {
+      let tasksFromLocal = JSON.parse(localStorage.getItem("todos"));
+      console.log(tasksFromLocal);
+      setTodoItems(tasksFromLocal);
     }
   }
 

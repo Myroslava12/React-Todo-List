@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 
-const Form = ({itemValue, setItemValue, priorityValue, setPriotityValue, setItemsSelect, todoItems, setTodoItems, error, setError}) => {
+const Form = ({itemValue, setItemValue, priorityValue, setPriotityValue, setItemsSelect, todoItems, setTodoItems}) => {
 
     const handleItemValue = (e) => setItemValue(e.target.value);
 
@@ -22,11 +22,11 @@ const Form = ({itemValue, setItemValue, priorityValue, setPriotityValue, setItem
 
 
     return (
-        <form onSubmit={(itemValue.length !== 0 && priorityValue < 10 && priorityValue > 1) ? addNewTask: null}>
+        <form onSubmit={(itemValue.length !== 0 && priorityValue <= 10 && priorityValue >= 1) ? addNewTask: null}>
             <div>
                 <input onChange={handleItemValue} className="input--add--task" type='text' value={itemValue} placeholder='Task name' />
-                <input onChange={handlePriorityValue} type='number' value={priorityValue} placeholder='Task priority from 1 to 10' />
-                <button disabled={(itemValue.length == '' && priorityValue.length == '') ? true : false} type="submit" className="add--task"><i className="fa fa-plus"></i></button>
+                <input onChange={handlePriorityValue} className="input--add--priority" type='number' value={priorityValue} placeholder='Task priority from 1 to 10' />
+                <button disabled={(itemValue.length === 0 || priorityValue.length === 0) ? true : false} type="submit" className="add--task"><i className="fa fa-plus"></i></button>
             </div>
             {/* {error ? <p>Podaj zadanie i wpisz priorytet zadania od 1 do 10</p> : null} */}
             
