@@ -8,7 +8,7 @@ Functional list:
 - Add a task priority;
 - Edit tasks, mark as completed or uncomplated;
 - Delete a task from the task list;
-- View a list of completed tasks or uncomplated.
+- View a list of completed tasks or uncompleted.
 
 
 Live demo: https://react--todo-list.herokuapp.com/
