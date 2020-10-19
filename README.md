@@ -1,8 +1,8 @@
-To-Do List
+# To-Do List
 
 A simple web application created for better time planning.
 
-Functional list:
+## Functional list:
 
 - Add a task to the task list;
 - Add a task priority;
@@ -11,7 +11,7 @@ Functional list:
 - View a list of completed tasks or uncompleted.
 
 
-Live demo: https://react--todo-list.herokuapp.com/
+## Live demo: https://react--todo-list.herokuapp.com/
 
 
 This project was bootstrapped with Create React App.
